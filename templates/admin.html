@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Quiz - Admin Panel</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Secure Quiz Admin Panel</h1>
+            <p>Professional Poll Management System</p>
+        </header>
+
+        <div class="admin-grid">
+
+            <!-- Poll Management -->
+            <div class="admin-section">
+                <h2>📊 Audience Poll Management</h2>
+                <div class="poll-controls">
+                    <div class="input-group">
+                        <label for="pollQuestion">Poll Question (Optional):</label>
+                        <input type="text" id="pollQuestion" placeholder="Enter your poll question (or leave blank for 'Quick Poll')">
+                    </div>
+                    <div class="poll-buttons">
+                        <button id="startPoll" class="btn btn-info">📝 Start Poll</button>
+                        <button id="stopPoll" class="btn btn-warning">⏹️ Stop Poll</button>
+                        <button id="resetPoll" class="btn btn-secondary">🔄 Reset Poll</button>
+                    </div>
+                </div>
+                <div class="poll-status">
+                    <span id="pollStatus">Poll: Inactive</span>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="admin-section">
+                <h2>🔗 Quick Links</h2>
+                <div class="quick-links">
+                    <a href="/display" class="btn btn-outline">📺 Display Screen</a>
+                    <a href="/poll" class="btn btn-outline">🗳️ Audience Poll</a>
+                    <a href="/poll-admin" class="btn btn-outline">📊 Poll Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen Toggle Button -->
+    <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='fullscreen.js') }}"></script>
+</body>
+</html>

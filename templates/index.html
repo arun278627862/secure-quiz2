@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Quiz - Home</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Secure Quiz</h1>
+            <p>Professional Polling Management System</p>
+        </header>
+
+        <div class="home-grid">
+            <div class="welcome-section">
+                <h2>Welcome to Secure Quiz</h2>
+                <p>A comprehensive real-time polling system designed for audience engagement and secure voting.</p>
+            </div>
+
+            <div class="access-links">
+                <h3>Access Points</h3>
+                <div class="link-grid">
+                    <a href="/admin" class="access-link admin-link">
+                        <div class="link-icon">🎛️</div>
+                        <div class="link-content">
+                            <h4>Admin Panel</h4>
+                            <p>Manage polls and settings</p>
+                        </div>
+                    </a>
+                    
+                    <a href="/display" class="access-link display-link">
+                        <div class="link-icon">📺</div>
+                        <div class="link-content">
+                            <h4>Display Screen</h4>
+                            <p>Live results and game status</p>
+                        </div>
+                    </a>
+                    
+                    <a href="/poll" class="access-link poll-link">
+                        <div class="link-icon">🗳️</div>
+                        <div class="link-content">
+                            <h4>Audience Poll</h4>
+                            <p>Vote on current poll questions</p>
+                        </div>
+                    </a>
+                    
+                    <a href="/poll-admin" class="access-link poll-admin-link">
+                        <div class="link-icon">📊</div>
+                        <div class="link-content">
+                            <h4>Poll Admin</h4>
+                            <p>Manage polls and view results</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h3>Features</h3>
+                <ul class="features-list">
+                    <li>✅ Real-time voting with A, B, C, D options</li>
+                    <li>✅ Device-based voting (one vote per device)</li>
+                    <li>✅ Live results display with percentages</li>
+                    <li>✅ Professional poll management</li>
+                    <li>✅ Real-time statistics and updates</li>
+                    <li>✅ Responsive design for all devices</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen Toggle Button -->
+    <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+
+    <script src="{{ url_for('static', filename='fullscreen.js') }}"></script>
+    <script>
+        // Auto-redirect to admin after 3 seconds
+        setTimeout(() => {
+            window.location.href = '/admin';
+        }, 3000);
+    </script>
+</body>
+</html>

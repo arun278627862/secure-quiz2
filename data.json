@@ -1,0 +1,21 @@
+{
+  "poll": {
+    "active": true,
+    "question": "Quick Poll",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "votes": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 0
+    },
+    "voted_devices": [
+      "device_1758551091682_33sjp3tfs"
+    ]
+  }
+}

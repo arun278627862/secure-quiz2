@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Secure Poll">
+    <meta name="msapplication-TileColor" content="#5B1B3C">
+    <meta name="theme-color" content="#5B1B3C">
+    <meta name="format-detection" content="telephone=no">
+    <title>Secure Quiz - Secure Audience Poll</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="display-page">
+    <div class="display-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='secure-logo.png') }}" alt="Secure Meters Logo" class="company-logo">
+        </div>
+        
+        <!-- Header Section -->
+        <header class="display-header">
+            <h1>Secure Audience Poll</h1>
+            <p>Cast your vote in real-time</p>
+        </header>
+
+        <div class="display-section poll-container">
+            <!-- Poll Question -->
+            <div class="poll-question" id="pollQuestion">
+                <h2>No active poll</h2>
+                <p>Waiting for administrator to start a poll...</p>
+            </div>
+
+            <!-- Voting Options -->
+            <div class="poll-options" id="pollOptions" style="display: none;">
+                <button class="poll-option" data-option="A">
+                    <span class="option-letter">A</span>
+                    <span class="option-text">Option A</span>
+                </button>
+                <button class="poll-option" data-option="B">
+                    <span class="option-letter">B</span>
+                    <span class="option-text">Option B</span>
+                </button>
+                <button class="poll-option" data-option="C">
+                    <span class="option-letter">C</span>
+                    <span class="option-text">Option C</span>
+                </button>
+                <button class="poll-option" data-option="D">
+                    <span class="option-letter">D</span>
+                    <span class="option-text">Option D</span>
+                </button>
+            </div>
+
+            <!-- Results Display -->
+            <div class="poll-results" id="pollResults" style="display: none;">
+                <h3>Live Results</h3>
+                <div class="results-container">
+                    <div class="result-item" data-option="A">
+                        <div class="result-label">
+                            <span class="option-letter">A</span>
+                            <span class="vote-count">0 votes</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="percentage">0%</span>
+                    </div>
+                    <div class="result-item" data-option="B">
+                        <div class="result-label">
+                            <span class="option-letter">B</span>
+                            <span class="vote-count">0 votes</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="percentage">0%</span>
+                    </div>
+                    <div class="result-item" data-option="C">
+                        <div class="result-label">
+                            <span class="option-letter">C</span>
+                            <span class="vote-count">0 votes</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="percentage">0%</span>
+                    </div>
+                    <div class="result-item" data-option="D">
+                        <div class="result-label">
+                            <span class="option-letter">D</span>
+                            <span class="vote-count">0 votes</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="percentage">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vote Status -->
+            <div class="vote-status" id="voteStatus">
+                <p>Ready to vote</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="display-section navigation">
+            <!-- <a href="/admin" class="btn btn-outline">🔙 Back to Admin</a> -->
+            <a href="/display" class="btn btn-outline">📺 View Display</a>
+        </div>
+        
+        <!-- Fullscreen Toggle Button -->
+        <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='poll.js') }}"></script>
+    <script src="{{ url_for('static', filename='fullscreen.js') }}"></script>
+</body>
+</html>

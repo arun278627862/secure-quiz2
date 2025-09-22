@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Secure Display">
+    <meta name="msapplication-TileColor" content="#5B1B3C">
+    <meta name="theme-color" content="#5B1B3C">
+    <meta name="format-detection" content="telephone=no">
+    <title>Secure Quiz - Secure Audience Poll Display</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="display-page">
+    <div class="display-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='secure-logo.png') }}" alt="Secure Meters Logo" class="company-logo">
+        </div>
+        
+        <!-- Header Section -->
+        <header class="display-header">
+            <h1>Secure Audience Poll Display</h1>
+            <div class="display-status">
+                <span id="pollStatusDisplay">Poll: Inactive</span>
+            </div>
+        </header>
+
+        <!-- Poll Display -->
+        <div class="display-section poll-display">
+            <h2>Secure Audience Poll</h2>
+            <div class="poll-display-content">
+                <div class="poll-question-display" id="pollQuestionDisplay">
+                    <h3>No active poll</h3>
+                    <p>Waiting for administrator to start a poll...</p>
+                </div>
+                <div class="poll-results-display" id="pollResultsDisplay" style="display: none;">
+                    <div class="results-grid">
+                        <div class="result-card" data-option="A">
+                            <div class="result-letter">A</div>
+                            <div class="result-info">
+                                <div class="vote-count">0 votes</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="percentage">0%</div>
+                            </div>
+                        </div>
+                        <div class="result-card" data-option="B">
+                            <div class="result-letter">B</div>
+                            <div class="result-info">
+                                <div class="vote-count">0 votes</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="percentage">0%</div>
+                            </div>
+                        </div>
+                        <div class="result-card" data-option="C">
+                            <div class="result-letter">C</div>
+                            <div class="result-info">
+                                <div class="vote-count">0 votes</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="percentage">0%</div>
+                            </div>
+                        </div>
+                        <div class="result-card" data-option="D">
+                            <div class="result-letter">D</div>
+                            <div class="result-info">
+                                <div class="vote-count">0 votes</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="percentage">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Fullscreen Toggle Button -->
+    <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='display.js') }}"></script>
+    <script src="{{ url_for('static', filename='fullscreen.js') }}"></script>
+</body>
+</html>

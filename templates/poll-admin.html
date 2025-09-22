@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Quiz - Poll Administration</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='secure-logo.png') }}" alt="Secure Meters Logo" class="company-logo">
+        </div>
+        
+        <header>
+            <h1>📊 Poll Administration</h1>
+            <p>Manage audience polls and view results</p>
+        </header>
+
+        <div class="poll-admin-grid">
+            <!-- Poll Control -->
+            <div class="admin-section">
+                <h2>🎛️ Poll Control</h2>
+                <div class="poll-controls">
+                    <div class="input-group">
+                        <label for="pollQuestionInput">Poll Question (Optional):</label>
+                        <textarea id="pollQuestionInput" placeholder="Enter your poll question here... (or leave blank for 'Quick Poll')" rows="3"></textarea>
+                    </div>
+                    <div class="poll-buttons">
+                        <button id="startPollBtn" class="btn btn-success">📝 Start Poll</button>
+                        <button id="stopPollBtn" class="btn btn-danger">⏹️ Stop Poll</button>
+                        <button id="resetPollBtn" class="btn btn-warning">🔄 Reset Poll</button>
+                    </div>
+                </div>
+                <div class="poll-status">
+                    <span id="pollStatusText">Poll: Inactive</span>
+                </div>
+            </div>
+
+            <!-- Live Results -->
+            <div class="admin-section">
+                <h2>📈 Live Results</h2>
+                <div class="results-display" id="resultsDisplay">
+                    <div class="no-results">
+                        <p>No active poll</p>
+                        <p>Start a poll to see live results</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="admin-section">
+                <h2>📊 Statistics</h2>
+                <div class="stats-container" id="statsContainer">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Votes:</span>
+                        <span class="stat-value" id="totalVotes">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Leading Option:</span>
+                        <span class="stat-value" id="leadingOption">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Vote Rate:</span>
+                        <span class="stat-value" id="voteRate">0/min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="admin-section">
+                <h2>🔗 Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="/poll" class="btn btn-outline">🗳️ View Poll Page</a>
+                    <a href="/display" class="btn btn-outline">📺 Display Screen</a>
+                    <a href="/admin" class="btn btn-outline">🔙 Main Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen Toggle Button -->
+    <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='poll-admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='fullscreen.js') }}"></script>
+</body>
+</html>
